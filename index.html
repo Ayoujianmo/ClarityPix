@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clarity — AI 高清图片放大</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta name="description" content="使用 AI 智能放大图片，保留每一处细节。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="enhanced.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="nav container">
+    <a class="brand" href="#"><span class="brand-mark">C</span><span>clarity</span></a>
+    <nav><a href="#features">功能</a><a href="#showcase">效果展示</a><a href="#pricing">免费使用</a></nav>
+    <div class="nav-actions"><span class="free-note">无需注册 · 永久免费</span><button class="btn btn-dark small" data-scroll="studio">免费开始 <span>↗</span></button></div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="eyebrow"><i></i> AI POWERED IMAGE ENHANCEMENT</div>
+      <h1>让每一处细节<br>都清晰<span>如初</span></h1>
+      <p class="hero-text">智能重建像素，放大不止尺寸。<br>为你的每一张重要图片，赋予非凡清晰度。</p>
+      <div class="hero-actions"><button class="btn btn-dark" id="startBtn">免费放大图片 <span>↗</span></button><button class="watch" id="watchBtn"><b>▶</b> 观看演示 <small>01:24</small></button></div>
+      <div class="trust"><div class="avatars"><span>Y</span><span>K</span><span>J</span><span>+</span></div><p><b>10,000+</b> 创作者正在使用<br><em>4.9 / 5.0</em> 来自 2,000+ 份评价</p></div>
+      <div class="hero-art"><div class="halo halo-1"></div><div class="halo halo-2"></div><div class="art-card card-left"><span>RESOLUTION</span><b>3840 × 2160</b><i>4K</i></div><div class="art-card card-right"><span>DETAILS RECOVERED</span><b>98.7%</b><div class="mini-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="portrait-wrap"><img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=90" alt="高清人物样片"><div class="scan-line"></div></div><div class="art-label">ENHANCED WITH CLARITY<sup>™</sup></div></div>
+    </section>
+
+    <section class="studio-wrap" id="studio">
+      <div class="studio container">
+        <div class="section-head"><div><span class="index">01 / THE STUDIO</span><h2>即刻，放大你的视界</h2></div><p>将图片拖入工作台，剩下的交给我们。<br>无需安装，无需等待。</p></div>
+        <div class="workbench" id="dropZone">
+          <input type="file" id="fileInput" accept="image/*" hidden>
+          <div class="upload-panel" id="uploadPanel"><div class="upload-icon">↑</div><h3>拖放图片到这里</h3><p>或 <button id="browseBtn">选择本地文件</button></p><small>支持 JPG、PNG、WEBP · 最大 20 MB</small></div>
+          <div class="preview-panel" id="previewPanel"><div class="image-stage"><img id="previewImage" alt="上传预览"><div class="compare-line" id="compareLine"><b>↔</b></div><span class="tag before">原始</span><span class="tag after">Clarity AI</span></div><div class="preview-tools"><div><b id="fileName">图片预览</b><small id="fileMeta">准备好优化</small></div><button class="remove" id="removeBtn">×</button></div></div>
+          <aside class="settings"><div class="setting-title"><span>放大倍数</span><button class="hint" id="hintBtn">?</button></div><div class="scales"><button data-scale="2">2×</button><button data-scale="4" class="active">4×</button><button data-scale="8">8×</button></div><div class="setting-title gap"><span>增强选项</span></div><label class="toggle-row">人像优化 <input type="checkbox" checked><i></i></label><label class="toggle-row">降噪处理 <input type="checkbox" checked><i></i></label><label class="toggle-row">面部修复 <input type="checkbox"><i></i></label><button class="btn btn-dark enhance" id="enhanceBtn">开始增强 <span>↗</span></button></aside>
+        </div>
+        <div class="studio-footer"><span><i class="dot"></i> 当前服务运行正常</span><span>处理时间通常少于 30 秒</span><span>你的文件将在 24 小时后自动删除</span></div>
+      </div>
+    </section>
+
+    <section class="features container" id="features"><div class="section-head"><div><span class="index">02 / WHY CLARITY</span><h2>不只是放大<br>更是重新看见</h2></div><p>在每个像素中捕捉真实，<br>为创意提供更大的表达空间。</p></div><div class="feature-grid"><article><span>01</span><h3>智能细节重建</h3><p>通过深度学习识别纹理与结构，重建真实、自然的画面细节。</p><a href="#" class="feature-link" data-feature="智能细节重建">探索技术 <b>→</b></a></article><article><span>02</span><h3>自然人像修复</h3><p>智能识别面部轮廓与五官，让每一帧肖像保留生动的真实感。</p><a href="#" class="feature-link" data-feature="自然人像修复">探索技术 <b>→</b></a></article><article><span>03</span><h3>专业级输出</h3><p>支持最高 8 倍无损放大，输出适用于印刷和商业用途的高清文件。</p><a href="#" class="feature-link" data-feature="专业级输出">探索技术 <b>→</b></a></article></div></section>
+    <section class="showcase" id="showcase"><div class="container showcase-inner"><div><span class="index">03 / IN THEIR WORDS</span><h2>细节，成就<br>每一个不凡瞬间</h2><blockquote>“旧照片里奶奶的笑容，<br>终于重新变得清晰。”</blockquote><p>— 林屿，独立摄影师</p></div><button class="result-card" id="showcaseBtn"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1100&q=90" alt="人物修复展示"><div class="result-info"><span>PORTRAIT RESTORATION</span><b>查看示例 ↗</b></div></button></div></section>
+    <section class="pricing container" id="pricing"><span class="index">04 / ALWAYS FREE</span><h2>好作品，不该设限</h2><div class="free-card"><div><span class="free-badge">永久免费</span><h3>所有功能，完全免费</h3><p>无需注册 · 无水印下载 · 不限使用次数<br>图片仅在你的浏览器中处理，保护每一份创作。</p></div><button class="btn btn-dark plan-btn" data-plan="免费使用">立即免费使用 <em>↗</em></button></div></section>
+  </main>
+  <footer class="container"><a class="brand" href="#"><span class="brand-mark">C</span><span>clarity</span></a><p>© 2024 CLARITY LABS. ALL RIGHTS RESERVED.</p><div><a href="#" class="legal-link" data-title="隐私政策">隐私</a><a href="#" class="legal-link" data-title="服务条款">条款</a><a href="https://instagram.com" target="_blank" rel="noreferrer">Instagram ↗</a></div></footer>
+  <div class="toast" id="toast">图片增强任务已创建 <b>✓</b></div>
+  <div class="modal" id="modal"><div class="modal-box"><button class="modal-close" aria-label="关闭">×</button><div id="modalContent"></div></div></div>
+  <script src="script.js"></script>
+</body>
+</html>
