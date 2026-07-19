@@ -13,11 +13,13 @@
   <link rel="stylesheet" href="enhanced.css" />
 </head>
 <body>
+  <a class="skip-link" href="#studio">跳到图片上传</a>
   <div class="noise"></div>
   <header class="nav container">
-    <a class="brand" href="#"><span class="brand-mark">C</span><span>clarity</span></a>
-    <nav><a href="#features">功能</a><a href="#showcase">效果展示</a><a href="#pricing">免费使用</a></nav>
+    <a class="brand" href="#" aria-label="Clarity 首页"><span class="brand-mark">C</span><span>clarity</span></a>
+    <nav id="siteNav"><a href="#features">功能</a><a href="#showcase">效果展示</a><a href="#pricing">免费使用</a></nav>
     <div class="nav-actions"><span class="free-note">无需注册 · 永久免费</span><button class="btn btn-dark small" data-scroll="studio">免费开始 <span>↗</span></button></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="打开导航" aria-controls="siteNav" aria-expanded="false"><span></span><span></span></button>
   </header>
 
   <main>
@@ -34,12 +36,13 @@
       <div class="studio container">
         <div class="section-head"><div><span class="index">01 / THE STUDIO</span><h2>即刻，放大你的视界</h2></div><p>将图片拖入工作台，剩下的交给我们。<br>无需安装，无需等待。</p></div>
         <div class="workbench" id="dropZone">
-          <input type="file" id="fileInput" accept="image/*" hidden>
-          <div class="upload-panel" id="uploadPanel"><div class="upload-icon">↑</div><h3>拖放图片到这里</h3><p>或 <button id="browseBtn">选择本地文件</button></p><small>支持 JPG、PNG、WEBP · 最大 20 MB</small></div>
-          <div class="preview-panel" id="previewPanel"><div class="image-stage"><img id="previewImage" alt="上传预览"><div class="compare-line" id="compareLine"><b>↔</b></div><span class="tag before">原始</span><span class="tag after">Clarity AI</span></div><div class="preview-tools"><div><b id="fileName">图片预览</b><small id="fileMeta">准备好优化</small></div><button class="remove" id="removeBtn">×</button></div></div>
-          <aside class="settings"><div class="setting-title"><span>放大倍数</span><button class="hint" id="hintBtn">?</button></div><div class="scales"><button data-scale="2">2×</button><button data-scale="4" class="active">4×</button><button data-scale="8">8×</button></div><div class="setting-title gap"><span>增强选项</span></div><label class="toggle-row">人像优化 <input type="checkbox" checked><i></i></label><label class="toggle-row">降噪处理 <input type="checkbox" checked><i></i></label><label class="toggle-row">面部修复 <input type="checkbox"><i></i></label><button class="btn btn-dark enhance" id="enhanceBtn">开始增强 <span>↗</span></button></aside>
+          <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" aria-label="选择要放大的图片" hidden>
+          <div class="upload-panel" id="uploadPanel" role="button" tabindex="0" aria-label="拖放图片、粘贴图片或选择本地文件"><div class="upload-icon">↑</div><h3>拖放图片到这里</h3><p>或 <button id="browseBtn" type="button">选择本地文件</button></p><small>支持 JPG、PNG、WEBP · 最大 20 MB · 可直接 Ctrl+V 粘贴</small></div>
+          <div class="preview-panel" id="previewPanel"><div class="image-stage" id="imageStage"><img id="previewImage" alt="上传预览"><img id="enhancedPreview" class="enhanced-preview" alt="" aria-hidden="true"><div class="compare-line" id="compareLine" role="slider" tabindex="0" aria-label="调整原图和增强效果对比" aria-valuemin="5" aria-valuemax="95" aria-valuenow="50"><b>↔</b></div><span class="tag before">原始</span><span class="tag after">Clarity AI</span></div><div class="preview-tools"><div><b id="fileName">图片预览</b><small id="fileMeta">准备好优化</small></div><button class="remove" id="removeBtn" type="button" aria-label="移除当前图片">×</button></div><div class="inline-result" id="inlineResult" hidden><div><span>增强结果</span><b id="inlineResultMeta">等待生成</b></div><img id="inlineResultImage" alt="增强后的图片"><a id="inlineDownload" href="#" download>下载结果</a></div></div>
+          <aside class="settings"><div class="setting-title"><span>放大倍数</span><button class="hint" id="hintBtn" type="button" aria-label="查看放大倍数说明">?</button></div><div class="scales"><button data-scale="2" type="button" aria-pressed="false">2×</button><button data-scale="4" class="active" type="button" aria-pressed="true">4×</button><button data-scale="8" type="button" aria-pressed="false">8×</button></div><div class="setting-title gap"><span>增强选项</span></div><label class="toggle-row">人像优化 <input id="portraitOpt" type="checkbox" checked><i></i></label><label class="toggle-row">降噪处理 <input id="denoiseOpt" type="checkbox" checked><i></i></label><label class="toggle-row">面部修复 <input id="faceOpt" type="checkbox"><i></i></label><div class="setting-title gap"><span>输出格式</span></div><div class="formats" id="formatGroup"><button data-format="jpeg" class="active" type="button" aria-pressed="true">JPG</button><button data-format="png" type="button" aria-pressed="false">PNG</button><button data-format="webp" type="button" aria-pressed="false">WEBP</button></div><label class="range-row">质量 <input id="qualityRange" type="range" min="70" max="100" value="95"><b id="qualityValue">95%</b></label><p class="output-note" id="outputNote">先上传图片，系统会自动估算输出尺寸。</p><button class="btn btn-dark enhance" id="enhanceBtn" type="button">选择图片开始 <span>↗</span></button></aside>
         </div>
         <div class="studio-footer"><span><i class="dot"></i> 当前服务运行正常</span><span>处理时间通常少于 30 秒</span><span>你的文件将在 24 小时后自动删除</span></div>
+        <div class="history-panel" id="historyPanel"><div class="history-head"><span class="index">RECENT EXPORTS</span><button class="clear-history" id="clearHistory" type="button">清空</button></div><div class="history-list" id="historyList"><p class="history-empty">完成增强后，下载记录会显示在这里。</p></div></div>
       </div>
     </section>
 
